@@ -1,45 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg: #0f0e17;
-  --color-bg-card: #1a1929;
-  --color-maple-red: #e84545;
-  --color-maple-gold: #ffd166;
-  --color-maple-green: #06d6a0;
-  --color-text: #fffffe;
-  --color-muted: #a7a9be;
-  --color-border: #2d2b55;
+  --color-bg:        #111318;
+  --color-surface:   #191c23;
+  --color-surface-2: #1e222b;
+  --color-surface-3: #252932;
+  --color-border:    #2c3040;
+  --color-border-2:  #3a3f50;
 
-  --font-pixel: "Press Start 2P", system-ui;
-  --font-body: "Inter", system-ui;
+  --color-gold:      #f0b429;
+  --color-green:     #3dd68c;
+  --color-red:       #f87171;
+  --color-blue:      #60a5fa;
+
+  --color-text:   #e8eaf0;
+  --color-text-2: #9aa0b4;
+  --color-text-3: #5c6278;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
 }
 
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Pixel-art style border utility */
-.pixel-border {
-  border: 3px solid var(--color-maple-red);
-  box-shadow: 4px 4px 0 var(--color-maple-red);
-}
-
-.pixel-border-gold {
-  border: 3px solid var(--color-maple-gold);
-  box-shadow: 4px 4px 0 var(--color-maple-gold);
-}
-
-/* Pixel-dash section divider */
 .section-divider {
   border: none;
-  height: 3px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--color-maple-red) 0px,
-    var(--color-maple-red) 8px,
-    transparent 8px,
-    transparent 16px
-  );
+  height: 1px;
+  background: var(--color-border);
 }

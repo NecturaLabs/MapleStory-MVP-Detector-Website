@@ -24,46 +24,49 @@ const steps = [
 ];
 ---
 
-<section class="py-24 px-4">
+<section class="py-24 px-6">
   <div class="max-w-5xl mx-auto">
-    <h2
-      class="text-center text-lg sm:text-xl mb-16"
-      style="font-family:var(--font-pixel);color:var(--color-maple-gold);"
+    <!-- Section label -->
+    <p
+      class="text-center text-xs font-bold uppercase tracking-widest mb-3"
+      style="color: var(--color-gold);"
     >
       How It Works
+    </p>
+    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-16" style="color: var(--color-text);">
+      Up and running in seconds
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
       {
         steps.map((step, i) => (
           <div
-            class="relative flex flex-col items-center text-center p-6"
-            style="background:var(--color-bg-card);border:2px solid var(--color-border);"
+            class="relative flex flex-col p-6 rounded-lg"
+            style="background: var(--color-surface); border: 1px solid var(--color-border);"
           >
+            <!-- Step number -->
             <span
-              class="text-xs mb-3"
-              style="font-family:var(--font-pixel);color:var(--color-maple-red);"
+              class="text-xs font-bold mb-4"
+              style="font-family: var(--font-mono); color: var(--color-gold);"
             >
               {step.number}
             </span>
-            <span class="text-5xl mb-4" aria-hidden="true">
+            <span class="text-3xl mb-4" aria-hidden="true">
               {step.icon}
             </span>
-            <h3
-              class="text-xs font-bold mb-3 leading-relaxed"
-              style="font-family:var(--font-pixel);color:var(--color-text);"
-            >
+            <h3 class="text-sm font-semibold mb-2" style="color: var(--color-text);">
               {step.title}
             </h3>
-            <p class="text-sm leading-relaxed" style="color:var(--color-muted);">
+            <p class="text-sm leading-relaxed" style="color: var(--color-text-2);">
               {step.description}
             </p>
+
             {i < steps.length - 1 && (
               <div
-                class="hidden md:block absolute -right-5 top-1/2 -translate-y-1/2 text-2xl z-10"
-                style="color:var(--color-maple-red);"
+                class="hidden md:block absolute -right-3.5 top-1/2 -translate-y-1/2 z-10 text-xs font-bold"
+                style="color: var(--color-text-3);"
               >
-                ▶
+                ›
               </div>
             )}
           </div>

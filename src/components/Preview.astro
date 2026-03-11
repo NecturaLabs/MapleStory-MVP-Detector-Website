@@ -2,21 +2,25 @@
 import { APP_URL } from '../config';
 ---
 
-<section class="py-24 px-4">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2
-      class="text-lg sm:text-xl mb-4"
-      style="font-family:var(--font-pixel);color:var(--color-maple-gold);"
+<section class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <!-- Section label -->
+    <p
+      class="text-center text-xs font-bold uppercase tracking-widest mb-3"
+      style="color: var(--color-gold);"
     >
-      See It In Action
+      Preview
+    </p>
+    <h2 class="text-center text-2xl sm:text-3xl font-bold mb-4" style="color: var(--color-text);">
+      See it in action
     </h2>
-    <p class="text-sm mb-12" style="color:var(--color-muted);">
+    <p class="text-center text-sm mb-12" style="color: var(--color-text-2);">
       Watch the detector catch MVP announcements live and fire Discord alerts instantly.
     </p>
 
     <div
-      class="relative"
-      style="border:3px solid var(--color-maple-red);box-shadow:8px 8px 0 var(--color-maple-red);"
+      class="rounded-lg overflow-hidden"
+      style="border: 1px solid var(--color-border-2); box-shadow: 0 24px 80px rgba(0,0,0,0.5);"
     >
       <img
         src="/screenshot.png"
@@ -27,14 +31,16 @@ import { APP_URL } from '../config';
       />
     </div>
 
-    <a
-      href={APP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="inline-block mt-8 text-xs underline underline-offset-4"
-      style="color:var(--color-maple-red);font-family:var(--font-pixel);"
-    >
-      Try it live →
-    </a>
+    <div class="text-center mt-8">
+      <a
+        href={APP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-sm font-medium"
+        style="color: var(--color-gold);"
+      >
+        Try it live →
+      </a>
+    </div>
   </div>
 </section>

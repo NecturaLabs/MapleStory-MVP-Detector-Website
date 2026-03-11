@@ -4,17 +4,17 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-  class="py-12 px-4 text-center"
-  style="background:var(--color-bg-card);border-top:2px solid var(--color-border);"
+  class="py-10 px-6 text-center"
+  style="background: var(--color-surface-2); border-top: 1px solid var(--color-border);"
 >
   <div class="max-w-3xl mx-auto">
-    <nav class="flex justify-center gap-8 mb-6 text-xs" aria-label="Footer navigation">
+    <nav class="flex justify-center gap-8 mb-6 text-sm" aria-label="Footer navigation">
       <a
         href={APP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:underline"
-        style="color:var(--color-maple-red);"
+        class="font-medium transition-colors"
+        style="color: var(--color-gold);"
       >
         Launch App
       </a>
@@ -22,21 +22,18 @@ const year = new Date().getFullYear();
         href={GITHUB_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:underline"
-        style="color:var(--color-muted);"
+        class="transition-colors"
+        style="color: var(--color-text-3);"
       >
         GitHub
       </a>
     </nav>
 
-    <p class="text-xs mb-4" style="color:var(--color-muted);">
+    <p class="text-xs mb-3" style="color: var(--color-text-3);">
       © {year} NecturaLabs. MIT License.
     </p>
 
-    <p
-      class="text-xs leading-relaxed max-w-xl mx-auto"
-      style="color:var(--color-muted);opacity:0.7;"
-    >
+    <p class="text-xs leading-relaxed max-w-xl mx-auto" style="color: var(--color-text-3); opacity: 0.6;">
       This project is not affiliated with, endorsed by, or sponsored by Nexon or NEXON Korea
       Corporation. MapleStory is a trademark of Nexon.
     </p>
