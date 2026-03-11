@@ -1,5 +1,4 @@
 ---
-import { APP_URL, GITHUB_URL } from '../config';
 const year = new Date().getFullYear();
 ---
 
@@ -8,28 +7,7 @@ const year = new Date().getFullYear();
   style="background: var(--color-surface-2); border-top: 1px solid var(--color-border);"
 >
   <div class="max-w-3xl mx-auto">
-    <nav class="flex justify-center gap-8 mb-6 text-sm" aria-label="Footer navigation">
-      <a
-        href={APP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="font-medium transition-colors"
-        style="color: var(--color-gold);"
-      >
-        Launch App
-      </a>
-      <a
-        href={GITHUB_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="transition-colors"
-        style="color: var(--color-text-3);"
-      >
-        GitHub
-      </a>
-    </nav>
-
-    <p class="text-xs mb-3" style="color: var(--color-text-3);">
+    <p class="text-sm font-medium mb-3" style="color: var(--color-text-2);">
       © {year} NecturaLabs. MIT License.
     </p>
 
