@@ -8,7 +8,7 @@ Landing page for the [MapleStory MVP Detector](https://github.com/NecturaLabs/Ma
 
 | | |
 |---|---|
-| Framework | [Astro 5](https://astro.build) (static output) |
+| Framework | [Astro 6](https://astro.build) (static output) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) |
 | Fonts | Press Start 2P + Inter (Google Fonts) |
 | Testing | [Vitest](https://vitest.dev) |

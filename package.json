@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Landing page for the MapleStory MVP Detector",
   "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
   "type": "module",
   "scripts": {
     "dev": "astro dev",
