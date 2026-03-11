@@ -1,0 +1,72 @@
+# Dependabot Auto-Merge
+# Auto-merges Dependabot PRs after CI passes
+
+name: Dependabot Auto-Merge
+
+on:
+  pull_request:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  dependabot-auto-merge:
+    name: Auto-merge Dependabot PRs
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.head_repository.fork == false) ||
+      (github.event_name == 'pull_request' && github.actor == 'dependabot[bot]')
+
+    steps:
+      - name: Get PR number
+        id: pr
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_run" ]; then
+            PR_NUMBER=$(gh pr list --head "${{ github.event.workflow_run.head_branch }}" --state open --json number --jq '.[0].number')
+            if [ -z "$PR_NUMBER" ] || [ "$PR_NUMBER" == "null" ]; then
+              echo "No open PR found for workflow run"
+              echo "number=" >> $GITHUB_OUTPUT
+            else
+              echo "number=$PR_NUMBER" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if PR is from Dependabot
+        if: steps.pr.outputs.number != ''
+        id: check-author
+        run: |
+          PR_AUTHOR=$(gh pr view ${{ steps.pr.outputs.number }} --json author --jq '.author.login')
+          echo "author=$PR_AUTHOR" >> $GITHUB_OUTPUT
+          if [ "$PR_AUTHOR" != "dependabot[bot]" ]; then
+            echo "PR is not from Dependabot, exiting"
+            exit 0
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable auto-merge
+        if: github.event_name == 'pull_request' && steps.check-author.outputs.author == 'dependabot[bot]'
+        run: gh pr merge --auto --squash ${{ steps.pr.outputs.number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Approve PR after CI passes
+        if: github.event_name == 'workflow_run' && steps.check-author.outputs.author == 'dependabot[bot]'
+        run: |
+          APPROVED=$(gh pr view ${{ steps.pr.outputs.number }} --json reviews --jq '[.reviews[] | select(.state == "APPROVED")] | length > 0')
+          if [ "$APPROVED" != "true" ]; then
+            gh pr review --approve ${{ steps.pr.outputs.number }} -b "Auto-approved after successful CI checks"
+          else
+            echo "PR already has approvals"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,62 @@
+---
+import { APP_URL, GITHUB_URL } from '../config';
+---
+
+<section class="relative min-h-screen flex flex-col items-center justify-center px-4 py-24 text-center overflow-hidden">
+  <!-- Decorative pixel dots (CSS only, no JS) -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div style="position:absolute;top:10%;left:15%;width:6px;height:6px;background:var(--color-maple-gold);opacity:0.6;"></div>
+    <div style="position:absolute;top:25%;left:80%;width:8px;height:8px;background:var(--color-maple-red);opacity:0.4;"></div>
+    <div style="position:absolute;top:60%;left:5%;width:4px;height:4px;background:var(--color-maple-green);opacity:0.5;"></div>
+    <div style="position:absolute;top:75%;left:90%;width:10px;height:10px;background:var(--color-maple-gold);opacity:0.3;"></div>
+    <div style="position:absolute;top:40%;left:92%;width:4px;height:4px;background:var(--color-maple-red);opacity:0.35;"></div>
+    <div style="position:absolute;top:85%;left:40%;width:6px;height:6px;background:var(--color-maple-green);opacity:0.4;"></div>
+  </div>
+
+  <!-- Maple leaf accent -->
+  <p class="text-5xl mb-6" aria-hidden="true">🍁</p>
+
+  <!-- Free & OSS badge -->
+  <div
+    class="inline-flex items-center gap-2 mb-6 px-3 py-1 text-xs"
+    style="font-family:var(--font-pixel);border:2px solid var(--color-maple-green);color:var(--color-maple-green);"
+  >
+    ★ Free &amp; Open Source
+  </div>
+
+  <!-- Title -->
+  <h1
+    class="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 leading-tight"
+    style="font-family:var(--font-pixel);color:var(--color-maple-gold);text-shadow:4px 4px 0 #000;"
+  >
+    MS MVP<br />Detector
+  </h1>
+
+  <!-- Tagline -->
+  <p class="text-base sm:text-lg max-w-xl mb-10 leading-relaxed" style="color:var(--color-muted);">
+    Real-time MVP alerts for MapleStory, straight to your Discord channel.
+    No install needed — runs entirely in your browser.
+  </p>
+
+  <!-- CTAs -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <a
+      href={APP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-8 py-4 text-xs font-bold uppercase tracking-wide transition-transform hover:-translate-y-1 active:translate-y-0"
+      style="font-family:var(--font-pixel);background:var(--color-maple-red);color:#fff;box-shadow:4px 4px 0 #7a1c1c;"
+    >
+      Launch App →
+    </a>
+    <a
+      href={GITHUB_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="px-8 py-4 text-xs font-bold uppercase tracking-wide transition-transform hover:-translate-y-1 active:translate-y-0"
+      style="font-family:var(--font-pixel);background:transparent;color:var(--color-text);border:3px solid var(--color-border);box-shadow:4px 4px 0 var(--color-border);"
+    >
+      GitHub
+    </a>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0f0e17;
+  --color-bg-card: #1a1929;
+  --color-maple-red: #e84545;
+  --color-maple-gold: #ffd166;
+  --color-maple-green: #06d6a0;
+  --color-text: #fffffe;
+  --color-muted: #a7a9be;
+  --color-border: #2d2b55;
+
+  --font-pixel: "Press Start 2P", system-ui;
+  --font-body: "Inter", system-ui;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* Pixel-art style border utility */
+.pixel-border {
+  border: 3px solid var(--color-maple-red);
+  box-shadow: 4px 4px 0 var(--color-maple-red);
+}
+
+.pixel-border-gold {
+  border: 3px solid var(--color-maple-gold);
+  box-shadow: 4px 4px 0 var(--color-maple-gold);
+}
+
+/* Pixel-dash section divider */
+.section-divider {
+  border: none;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-maple-red) 0px,
+    var(--color-maple-red) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}

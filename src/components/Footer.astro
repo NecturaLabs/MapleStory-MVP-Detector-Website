@@ -1,0 +1,44 @@
+---
+import { APP_URL, GITHUB_URL } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="py-12 px-4 text-center"
+  style="background:var(--color-bg-card);border-top:2px solid var(--color-border);"
+>
+  <div class="max-w-3xl mx-auto">
+    <nav class="flex justify-center gap-8 mb-6 text-xs" aria-label="Footer navigation">
+      <a
+        href={APP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline"
+        style="color:var(--color-maple-red);"
+      >
+        Launch App
+      </a>
+      <a
+        href={GITHUB_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline"
+        style="color:var(--color-muted);"
+      >
+        GitHub
+      </a>
+    </nav>
+
+    <p class="text-xs mb-4" style="color:var(--color-muted);">
+      © {year} NecturaLabs. MIT License.
+    </p>
+
+    <p
+      class="text-xs leading-relaxed max-w-xl mx-auto"
+      style="color:var(--color-muted);opacity:0.7;"
+    >
+      This project is not affiliated with, endorsed by, or sponsored by Nexon or NEXON Korea
+      Corporation. MapleStory is a trademark of Nexon.
+    </p>
+  </div>
+</footer>

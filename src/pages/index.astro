@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Features from '../components/Features.astro';
+import Preview from '../components/Preview.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout>
+  <main>
+    <Hero />
+    <hr class="section-divider" />
+    <HowItWorks />
+    <hr class="section-divider" />
+    <Features />
+    <hr class="section-divider" />
+    <Preview />
+    <CtaBanner />
+  </main>
+  <Footer />
+</BaseLayout>
