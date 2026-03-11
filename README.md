@@ -2,16 +2,13 @@
 
 Landing page for the [MapleStory MVP Detector](https://github.com/NecturaLabs/MapleStory-MVP-Detector) — a free, browser-native tool that watches your MapleStory chat via OCR and fires Discord webhook alerts when an MVP is announced.
 
-**Live site: [ms-mvp.com](https://ms-mvp.com)**
-**App: [app.ms-mvp.com](https://app.ms-mvp.com)**
-
 ---
 
 ## Stack
 
 | | |
 |---|---|
-| Framework | [Astro 5](https://astro.build) (static output) |
+| Framework | [Astro 6](https://astro.build) (static output) |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) |
 | Fonts | Press Start 2P + Inter (Google Fonts) |
 | Testing | [Vitest](https://vitest.dev) |
@@ -40,7 +37,7 @@ bun run dev        # http://localhost:4321
 
 ## CI & Deployment
 
-Every push to `main` runs the CI pipeline (type check → tests → build → Netlify deploy). Pull requests get a Netlify preview deployment.
+Every push to `main` or `develop` runs the CI pipeline (type check → tests → build → Netlify deploy). Only `main` triggers production deployments. Pull requests get a Netlify preview deployment.
 
 Required secrets:
 
@@ -49,7 +46,7 @@ Required secrets:
 | `NETLIFY_AUTH_TOKEN` | Netlify personal access token (org-wide) |
 | `NETLIFY_SITE_ID` | Netlify site ID for this repo |
 
-Dependabot runs weekly for npm and GitHub Actions updates. Dependabot PRs are auto-merged after CI passes.
+Dependabot runs weekly for npm and GitHub Actions updates, targeting `develop`.
 
 ## Contributing
 

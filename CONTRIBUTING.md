@@ -20,7 +20,7 @@ bun run dev
 
 ## Pull Requests
 
-1. Fork the repo and create a branch from `main`
+1. Fork the repo and create a branch from `develop`
 2. Make your changes
 3. Ensure `bun run check`, `bun run test`, and `bun run build` all pass
 4. Open a PR — CI will run automatically and post a Netlify preview link
