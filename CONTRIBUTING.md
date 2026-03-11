@@ -24,17 +24,6 @@ bun run dev
 2. Make your changes
 3. Ensure `bun run check`, `bun run test`, and `bun run build` all pass
 4. Open a PR — CI will run automatically and post a Netlify preview link
-
-## Replacing Placeholder Assets
-
-The following files in `public/` are 1×1 pixel placeholders that need real assets before launch:
-
-| File | Description |
-|---|---|
-| `public/favicon.ico` | 32×32 favicon (ideally a maple leaf pixel icon) |
-| `public/og-image.png` | 1200×630 Open Graph image |
-| `public/screenshot.png` | 1200×675 screenshot of the app |
-
 ## License
 
 By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
