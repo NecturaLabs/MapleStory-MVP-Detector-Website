@@ -1,0 +1,20 @@
+name: _discover-netlify-site-id
+on:
+  workflow_dispatch:
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit site ID
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        run: |
+          curl -s -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+            "https://api.netlify.com/api/v1/sites" | \
+            python3 -c "
+import sys, json
+sites = json.load(sys.stdin)
+for s in sites:
+    if 'ms-mvp' in s.get('name','') or 'ms-mvp' in s.get('custom_domain','') or 'ms-mvp' in s.get('default_domain',''):
+        print('SITE_ID:', s['id'], '| name:', s['name'], '| domain:', s.get('custom_domain',''))
+"
